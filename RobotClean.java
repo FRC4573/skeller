@@ -120,13 +120,13 @@ public class Robot extends TimedRobot {
   SpeedControllerGroup m_left = new SpeedControllerGroup(m_frontLeft, m_rearLeft);
   SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
   
-  CANSparkMax m_IntakeMotor = new CANSparkMax(8, MotorType.kBrushless);
-  Talon m_LOutakeMotor = new Talon(1);
-  Talon m_ROutakeMotor = new Talon(0);
-  Talon m_BeltMotor = new Talon(2);
-  Talon m_ColorSpinner  = new  Talon(4);
-  Talon m_ClimbMotor = new Talon(3);
-  Spark CrawlMotor = new Spark(5);
+ CANSparkMax m_IntakeMotor = new CANSparkMax(8, MotorType.kBrushless);
+ Talon m_ROutakeMotor = new Talon(0); 
+ Talon m_LOutakeMotor = new Talon(1);
+ Talon m_BeltMotor = new Talon(2);
+ Talon m_ClimbMotor = new Talon(3);
+ Talon m_ColorSpinner  = new  Talon(4);
+ Spark CrawlMotor = new Spark(5);
   int retries;
   
   ADXRS450_Gyro gyro = new ADXRS450_Gyro();
@@ -173,7 +173,7 @@ public class Robot extends TimedRobot {
     m_CrawlRight = .5;
     m_CrawlLeft = -.5;
 
-   drive_stick = new Joystick(0);
+    drive_stick = new Joystick(0);
     control_stick = new Joystick(1);
 
     m_drive = new DifferentialDrive(m_left, m_right);
@@ -245,7 +245,7 @@ public class Robot extends TimedRobot {
       m_ROuttakeMotor.set(0.5);
     }
     //INTERVAL 1
-    /*
+    
     while(timer.get()<4){
       m_BeltMotor.set(0.90);
       m_LOutakeMotor.set(m_LOutakeHigh);
@@ -277,7 +277,7 @@ public class Robot extends TimedRobot {
     m_ROutakeMotor.set(0.0);
     m_BeltMotor.set(0.0);
     
-*/
+
 
     /*
     switch(roboLocation){
