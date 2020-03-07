@@ -115,7 +115,7 @@ public class Robot extends TimedRobot {
   PWMVictorSPX m_rearLeft = new PWMVictorSPX(9);
 
   //possibly use this constructor instead of what is above//seen in other teams code //kacper
-  WPI_VictorSPX m_frontLight = new WPI_VictorSPX(10);
+ // WPI_VictorSPX m_frontLight = new WPI_VictorSPX(10);
 
   SpeedControllerGroup m_left = new SpeedControllerGroup(m_frontLeft, m_rearLeft);
   SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
@@ -180,19 +180,7 @@ public class Robot extends TimedRobot {
     m_drive.setExpiration(0.50);
     m_drive.arcadeDrive(0, 0, true);
     m_drive.setSafetyEnabled(false);
-    limitSwitchLower = new DigitalInput(0);
-    limitSwitch1 = new DigitalInput(1);
-    limitSwitch2 = new DigitalInput(2);
-    limitSwitchUpper = new DigitalInput(3);
-
-    UsbCamera camera0 = CameraServer.getInstance().startAutomaticCapture("SecondCam", 0);
-    camera0.setResolution(IMG_WIDTH / 2, IMG_HEIGHT / 2);
-    camera0.setFPS(15);
-
-    UsbCamera camera1 = CameraServer.getInstance().startAutomaticCapture("DriveCam", 1);
-    camera1.setResolution(IMG_WIDTH / 2, IMG_HEIGHT / 2);
-    camera1.setFPS(15);
-    System.out.println("END Robot Init: ");
+   
 
     m_colorMatcher.addColorMatch(kBlueTarget);
     m_colorMatcher.addColorMatch(kGreenTarget);
@@ -592,11 +580,12 @@ public void BarCrawl() {
   public void updateDisplays() {
     if (displayCtr % 25 == 0) { // Update displays on Dashboard every ~500msec
       displayCtr = 0; // reset display CTR
-      SmartDashboard.putString("DB/String 0", Double.toString(Y));
+      /* SmartDashboard.putString("DB/String 0", Double.toString(Y));
       SmartDashboard.putString("DB/String 1", "Next Stage: " + Double.toString(destinationStage));
       SmartDashboard.putString("DB/String 2", "Current Stage: " + Double.toString(currentStage));
       SmartDashboard.putString("DB/String 3", "Elev Speed: " + Double.toString(m_elevatorSpeed));
       SmartDashboard.putString("DB/String 3", "Elev Dir: " + Double.toString(elevatorDir));  
+      */
     }
 
     displayCtr++;
